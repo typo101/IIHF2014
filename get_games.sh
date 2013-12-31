@@ -24,6 +24,7 @@ curl -s "http://www.tsn.ca/videohub/Default.aspx?collection=181" | grep TVE_Obj 
 		php $ADOBEHDS --quality high --manifest "http://capi.9c9media.com/destinations/tsn_web/platforms/desktop/contents/$NUM1/contentpackages/$NUM2/stacks/$NUM3/manifest.f4m" --outdir $DIR/$NUM1 > /dev/null
 	done
 	cd $DIR/$NUM1
+ 	rename 's/.*_TSN/TSN/' *
 	IN=""
 	for FILE in `ls *.flv`; do
 		mkfifo $FILE.mp4concatpipe
